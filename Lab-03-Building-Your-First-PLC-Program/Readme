@@ -1,0 +1,66 @@
+# Lab 03 – Building Your First PLC Program
+
+## Overview
+
+This lab focuses on developing and validating a basic PLC control program using **OpenPLC Editor** and **Ladder Diagram (LD)** programming.
+
+The project implements an automated tank-filling control system with level monitoring, alarms, an emergency stop, and automatic valve control.
+
+## Objectives
+
+- Create a PLC project using OpenPLC Editor.
+- Define BOOL and REAL PLC variables.
+- Implement automatic tank filling logic.
+- Implement high-level and low-level alarms.
+- Implement emergency-stop functionality.
+- Compile and run the PLC program in simulation.
+- Validate the control logic using the OpenPLC debugger.
+
+## Tank Control Logic
+
+The system uses the following setpoints:
+
+| Parameter | Value |
+|---|---:|
+| Tank Empty Setpoint | 2.0 ft |
+| Tank Full Setpoint | 8.0 ft |
+| Low-Level Alarm Setpoint | 1.0 ft |
+| High-Level Alarm Setpoint | 9.0 ft |
+
+The filling valve is commanded open when automatic filling is active and the high-level alarm is not active.
+
+Automatic filling starts when the tank level is at or below the empty setpoint and stops when the full setpoint, high-level alarm, or emergency stop condition is reached.
+
+## Main Variables
+
+- `TankFillAuto_Cmd` – Automatic filling command
+- `TankValveOpen` – Tank valve command
+- `Estop_Cmd` – Emergency stop command
+- `TankLevelHi_Alarm` – High-level alarm
+- `TankLevelLo_Alarm` – Low-level alarm
+- `TankLevel_LIT` – Tank level measurement
+- `TankEmpty_SP` – Empty level setpoint
+- `TankFull_SP` – Full level setpoint
+- `TankLoAlarm_SP` – Low-level alarm setpoint
+- `TankHiAlarm_SP` – High-level alarm setpoint
+
+## Tools
+
+- OpenPLC Editor
+- Ladder Diagram (LD)
+- OpenPLC Runtime/Simulation
+- PLC Debugger
+
+## Validation
+
+The program was successfully compiled and transferred to the OpenPLC simulation environment. Runtime variables were monitored using the debugger to verify the tank-filling control logic and alarm states.
+
+## Evidence
+
+This folder contains the PLC project files, program screenshots, and supporting documentation for the lab.
+
+## Author
+
+**Adamu Nando Usufa**
+
+ICDFA – Critical Infrastructure Security Labs
