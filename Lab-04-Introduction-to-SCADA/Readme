@@ -1,0 +1,79 @@
+# Lab 04 – Introduction to SCADA
+
+## Overview
+
+This lab introduces Supervisory Control and Data Acquisition (SCADA) systems and demonstrates the connection between a SCADA Human-Machine Interface (HMI) and an OpenPLC Runtime using Modbus TCP.
+
+The lab uses a simulated tank-fill process to observe how process information is presented to an operator through an HMI.
+
+## Objectives
+
+- Understand the purpose and architecture of SCADA systems.
+- Identify the roles of PLCs, HMIs, alarms, events, and historized process data.
+- Configure and run a FUXA SCADA HMI.
+- Connect FUXA to OpenPLC Runtime using Modbus TCP.
+- Observe the automated tank-fill process.
+- Interpret operator-facing process indications and trends.
+- Understand the relationship between field processes, PLC control, industrial communication, and SCADA visualization.
+
+## SCADA Architecture
+
+The laboratory demonstrates the following control and monitoring flow:
+
+Field/Process → PLC → Modbus TCP Network → SCADA/HMI → Operator
+
+The PLC performs the control logic for the process, while the SCADA/HMI layer provides visualization and operator-facing information.
+
+## Laboratory Components
+
+- OpenPLC Runtime
+- FUXA SCADA/HMI
+- Modbus TCP
+- Tank-fill simulation
+- PLC
+- Operator HMI
+
+## Network Configuration
+
+| System | Address |
+|---|---|
+| PLC VM | 192.168.1.10 |
+| SCADA VM | 192.168.2.10 |
+| Modbus TCP Port | 502 |
+
+## HMI Process
+
+The FUXA HMI is used to display the tank-fill simulation and provide operator-facing indications such as:
+
+- Tank level
+- Valve status
+- Process trends
+- Alarms or other process indications
+
+## PLC and SCADA Roles
+
+The PLC is responsible for executing the real-time control logic of the industrial process. The SCADA/HMI system provides visualization and supervisory information to the operator.
+
+This separation allows the control system to continue performing its programmed control functions while the SCADA layer provides monitoring and operator context.
+
+## Evidence
+
+This folder contains the SCADA project files, screenshots, architecture diagram, and supporting documentation produced during the laboratory exercise.
+
+## Tools
+
+- OpenPLC Runtime
+- FUXA
+- Modbus TCP
+- Firefox
+- VirtualBox/Virtual Machine environment
+
+## Safety
+
+All activities were performed within the authorized ICDFA isolated laboratory environment. No external or production systems were targeted or connected.
+
+## Author
+
+**Adamu Nando Usufa**
+
+ICDFA – Critical Infrastructure Security Labs
