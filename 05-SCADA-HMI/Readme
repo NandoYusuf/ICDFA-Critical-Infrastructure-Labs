@@ -1,0 +1,99 @@
+# Lab 05 – SCADA Human Machine Interface (HMI)
+
+## Overview
+
+This lab focused on building a basic SCADA Human Machine Interface (HMI) using FUXA and connecting it to an OpenPLC tank-filling simulation.
+
+The HMI was designed to represent a simple tank process with:
+
+- Tank level indication
+- Motor-actuated fill valve
+- Process piping
+- Tank level value display
+- Valve open/closed state indication
+
+The HMI was connected to OpenPLC using Modbus TCP and tested with the running tank-fill simulation.
+
+## Objectives
+
+The objectives of this lab were to:
+
+1. Create a basic tank process visualization in FUXA.
+2. Add a tank level indicator and valve representation.
+3. Connect FUXA to the OpenPLC simulation.
+4. Configure PLC tags for the tank level and valve state.
+5. Bind HMI objects to the corresponding PLC tags.
+6. Run and observe the HMI while the simulated process was operating.
+
+## Tools and Environment
+
+- FUXA – SCADA/HMI platform
+- OpenPLC – PLC simulation
+- Modbus TCP – Communication protocol
+- Oracle VirtualBox – Virtualization environment
+- Ubuntu – SCADA environment
+
+## PLC Tags
+
+The HMI used the following process tags:
+
+| Tag | Address | Type | Function |
+|---|---|---|---|
+| Tank Valve Open | 1 | Bool | Indicates whether the tank fill valve is open |
+| Tank Level | 300081 | Int16 | Represents the tank level |
+
+## HMI Design
+
+The HMI was designed using a simple and restrained industrial visualization style. The main components include the tank, level indicator, valve, and connecting pipe.
+
+The tank level indicator was configured with a range from 0 to 10 ft. The valve state changes according to the value of the `Tank Valve Open` tag.
+
+## Testing
+
+The completed HMI was connected to the OpenPLC tank-fill simulation and tested in runtime mode.
+
+During testing:
+
+- The tank level value was displayed on the HMI.
+- The tank level changed according to the simulated process.
+- The valve indication reflected the PLC valve state.
+- The HMI successfully displayed the running process.
+
+## Project Files
+
+- `YOUR_REGISTRATION_NUMBER_LAB05.json` – Exported FUXA project
+- `Lab05_SCADA_HMI_Report.pdf` – Lab report and evidence
+
+## Evidence
+
+The accompanying report contains screenshots showing:
+
+1. OpenPLC/FUXA connection configuration
+2. FUXA HMI design
+3. Running HMI
+4. Valve state indication
+5. Tank filling/draining process
+
+## Knowledge Check
+
+### 1. What is a P&ID and how does it influence HMI layout?
+
+A P&ID (Piping and Instrumentation Diagram) represents process equipment, piping, instrumentation, and their connections. It provides a reference for organizing the HMI so that the displayed process follows the actual process flow.
+
+### 2. Why do high-performance HMIs avoid unnecessary animation and excessive color?
+
+Excessive animation and color can distract operators and make important process information harder to identify. A restrained design helps operators focus on abnormal conditions and important process information.
+
+### 3. How does Tank Level differ from Tank Valve Open in data type and behavior?
+
+`Tank Level` is an `Int16` value representing a numerical process measurement. `Tank Valve Open` is a Boolean value representing a two-state condition: open or closed.
+
+### 4. What could happen if the HMI displays stale or incorrect PLC data?
+
+Incorrect or stale information can cause operators to misunderstand the actual process state and potentially make inappropriate operational decisions. In an industrial environment, reliable and timely process information is therefore important.
+
+## Conclusion
+
+The lab successfully demonstrated the development of a basic SCADA HMI using FUXA and its integration with an OpenPLC tank-filling simulation. The HMI displayed the tank level and valve state and reflected changes from the running PLC simulation.
+
+This exercise provided practical experience with HMI design, PLC tag binding, Modbus TCP communication, and basic SCADA process visualization.
