@@ -1,0 +1,36 @@
+# ICDFA Lab 07 — Exploring ICS Packet Captures
+
+## Overview
+
+This lab focused on analyzing an instructor-provided Industrial Control
+Systems (ICS) packet capture using **Wireshark**.
+
+The objective was to identify different ICS and network protocols, inspect
+their communication, and identify security-relevant information visible in
+the captured traffic.
+
+## Objectives
+
+- Analyze ICS packet captures using Wireshark display filters.
+- Identify HTTP, FTP, Modbus, DNP3, EtherNet/IP, and S7 communication.
+- Identify exposed credentials, device metadata, and industrial operations.
+- Understand security weaknesses associated with legacy and cleartext
+  industrial protocols.
+- Perform passive packet analysis without interacting with external systems.
+
+## Environment
+
+| Component | Details |
+|---|---|
+| Operating System | Kali Linux |
+| Tool | Wireshark 4.6.6 |
+| Capture | `ICDFA_Lab7ICS_Traffic.pcap` |
+| Analysis Type | Passive Packet Analysis |
+
+## Protocols Analyzed
+
+### HTTP Basic Authentication
+
+**Filter:**
+```text
+http.authbasic
