@@ -1,0 +1,54 @@
+# Lab 06 – Introduction to Modbus
+
+## Overview
+
+This lab introduces the **Modbus industrial communication protocol** and demonstrates how Modbus/TCP communication can be observed and analyzed in a controlled ICS/SCADA laboratory environment.
+
+The practical exercise used **FUXA HMI**, **OpenPLC Runtime**, and **Wireshark** to observe communication between the SCADA system and PLC.
+
+> **Note:** This work was performed in an authorized ICDFA training environment for educational and cybersecurity training purposes.
+
+---
+
+## Lab Objectives
+
+The main objectives of this lab were to:
+
+- Understand the basic operation of the Modbus protocol.
+- Identify common Modbus function codes.
+- Observe Modbus/TCP communication between a SCADA system and PLC.
+- Capture Modbus traffic using Wireshark.
+- Identify Modbus requests and responses.
+- Analyze Function Code 4 (Read Input Registers).
+- Identify the register associated with the tank-level value.
+- Understand the security implications of unprotected industrial protocol traffic.
+
+---
+
+## Laboratory Environment
+
+| Component | IP Address | Role |
+|---|---|---|
+| OpenPLC | `192.168.1.10` | PLC / Modbus TCP Server |
+| SCADA / FUXA | `192.168.1.20` | HMI / Modbus TCP Client |
+| Kali Linux | `192.168.1.30` | Network Analysis / Wireshark |
+
+The Modbus/TCP communication was observed on the isolated `ICDFA-Lab` network.
+
+### Communication Flow
+
+```text
+FUXA / SCADA
+192.168.1.20
+      |
+      |  Modbus/TCP
+      |  TCP Port 502
+      |
+      v
+OpenPLC
+192.168.1.10
+      ^
+      |
+   Wireshark
+   Kali Linux
+192.168.1.30
