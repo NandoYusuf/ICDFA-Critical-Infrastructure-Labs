@@ -1,1 +1,83 @@
+# Modbus/TCP OT Security Practical Lab
 
+## ACICP302ICS — Module 1
+
+**Practical:** Analyze, Test & Defend the Supplied Modbus/TCP OT Simulation
+
+This lab documents the analysis, testing, and defence of the supplied
+Modbus/TCP OT simulation in an isolated Ubuntu virtual machine.
+
+### Scope
+
+- Target: `127.0.0.1`
+- Network: Loopback only
+- External systems: None
+- Bridged networking: Not used
+- Port forwarding: Not used
+- Canonical source:
+  `labs/ot-security/student-lab-source/`
+- Source commit:
+  `2a66f9bcf253eb3fe31c68ad52794cd535421da8`
+
+### Simulation
+
+| Component | Endpoint | Role |
+|---|---|---|
+| Plant | `127.0.0.1:5020` | Modbus/TCP process simulation |
+| Guard | `127.0.0.1:5021` | Rule-based protection |
+| Direct Dashboard | `127.0.0.1:8080` | Direct process view |
+| Guarded Dashboard | `127.0.0.1:8081` | Guarded process view |
+
+### Work Completed
+
+- Preflight and safety verification
+- OT architecture and process baseline
+- Modbus/TCP register/data-model analysis
+- Normal Modbus/TCP packet capture and analysis
+- Local service exposure mapping
+- Supplied guard analysis
+- Guard limitation analysis
+- Controlled security validation
+- Recovery and cleanup verification
+
+### Security Tests
+
+| Test | Direct Path | Guarded Path | Result |
+|---|---|---|---|
+| False-data | Unsafe values reached plant | Unsafe writes blocked | Guard effective |
+| Slow-drift | Pressure moved toward unsafe range | Unsafe writes blocked | Guard effective |
+| Replay | Repeated write attempted | No replay-specific block observed | Limitation identified |
+
+### Guard Controls
+
+The supplied guard applies:
+
+- Safe operating-range checks
+- Maximum step-size checks
+- Cumulative-drift checks
+
+The false-data and slow-drift tests generated corresponding `BLOCKED write`
+events. The replay test did not produce a replay-specific block, demonstrating
+a limitation of the supplied rule-based protection.
+
+### Recovery
+
+After testing:
+
+- Process values returned to normal operating ranges.
+- Direct and guarded dashboards were verified.
+- All four lab services were stopped.
+- Ports `5020`, `5021`, `8080`, and `8081` were confirmed closed.
+- Final network isolation was verified.
+
+### Repository Contents
+
+```text
+Lab-08-Modbus-TCP-OT-Security/
+├── README.md
+├── report/
+│   └── ACICP302ICS-Module1-OT-Lab-Report.pdf
+├── evidence/
+│   └── [Lab evidence screenshots]
+└── packet-analysis/
+    └── OT-lab-Normal-Modbus-PCAP.pcapng
